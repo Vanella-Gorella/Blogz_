@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+    <style>
+     /* Add a black background color to the top navigation */
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/newpost">New Post</a>
+        <a href="/blog">Blog</a>
+        {% if not session.email%}
+        <a href="/login">Login</a>
+        <a href="/signup">Sign up</a>
+        {% endif %}
+        {% if session.email %}
+        <a href="#">{{session.email}}</a>
+        <a href="/logout">Log Out</a>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
