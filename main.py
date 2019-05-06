@@ -45,8 +45,8 @@ def index():
     id = request.args.get('id')
     if 'id' in request.args:
 
-        blogs = Blog.query.filter_by(id=id).first()
-        return render_template('post.html', blogs=blogs)
+        new_entry = Blog.query.filter_by(id=id).first()
+        return render_template('post.html', new_entry=new_entry)
 
     users = User.query.all()
     return render_template('index.html', users=users)
